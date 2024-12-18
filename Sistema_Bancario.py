@@ -16,14 +16,13 @@ class ContasIterador:
             return f"""\
             Agência:\t{conta.agencia}
             Número:\t\t{conta.numero}
-            Titular:\t{conta.cliente.nome}
+            Titular:\t{conta.cliente._nome}
             Saldo:\t\tR$ {conta.saldo:.2f}
             """
         except IndexError:
             raise StopIteration
         finally:
             self._index +=1
-
 
 class Cliente:
     def __init__(self, endereco):
@@ -32,6 +31,9 @@ class Cliente:
         self._indice_conta = 0 
 
     def realizar_transacao(self, conta, transacao):
+        if len(conta.historico.transacoes_do_dia()) >= 10:
+            print('Você excedeu o numero de transacoes permitidas para hoje!')
+            return
         transacao.registrar(conta)
 
     def adicionar_conta(self, conta):
@@ -145,7 +147,7 @@ class Historico:
             {
                 'tipo': transacao.__class__.__name__,
                 'valor': transacao.valor,
-                'data': datetime.utcnow().strftime("%d-%m-%Y %H:%M:%S"),
+                'data': datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
             }
         )
 
@@ -281,13 +283,15 @@ def exibir_extrato(clientes):
         return
     
     print('\n ================ EXTRATO ================')
-    transacoes = conta.historico.gerar_relatorio
     extrato = ''
-    if not transacoes:
+    tem_transacao= False
+    for transacao in conta.historico.gerar_relatorio():
+        tem_transacao =True
+        extrato += f'\n{transacao['data']}\n{transacao['tipo']}:\n\tR${transacao['valor']:.2f}'    
+
+    if not tem_transacao:
         extrato = 'Não foram realizadas movimentações.'
-    else:
-        for transacao in conta.historico.gerar_relatorio():
-            extrato += f'\n{transacao['tipo']}:\n\tR${transacao['valor']:.2f}'
+
     
     print(extrato)
     print(f"\nSaldo:\n\tR$ {conta.saldo:.2f}")
@@ -329,11 +333,11 @@ def criar_conta(clientes, contas, numero_conta,):
     cliente.contas.append(conta)
 
     print('Conta criada com sucesso!')
-
+    
 def listar_contas(contas):
-    for contas in contas:
+    for conta in ContasIterador(contas):
         print('=' * 100)
-        print(textwrap.dedent(str(contas)))
+        print(textwrap.dedent(str(conta)))
 
 def main():
     clientes = []
