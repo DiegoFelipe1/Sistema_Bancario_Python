@@ -1,0 +1,16 @@
+[2025-01-10 11:45:54] Função 'depositar' executada com argumentos ([PessoaFisica: ('')>],) e {}. Retornou None
+[2025-01-10 11:47:36] Função 'criar_usuario' executada com argumentos ([PessoaFisica: ('')>],) e {}. Retornou None
+[2025-01-10 11:47:38] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('')>], [<ContaCorrente: ('0001', '1', 'Diego')>], 1) e {}. Retornou None
+[2025-01-10 11:47:41] Função 'depositar' executada com argumentos ([PessoaFisica: ('')>],) e {}. Retornou None
+[2025-01-10 11:50:16] Função 'criar_usuario' executada com argumentos ([PessoaFisica: ('1')>],) e {}. Retornou None
+[2025-01-10 11:50:21] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('1')>], [<ContaCorrente: ('0001', '1', 'Ana')>], 1) e {}. Retornou None
+[2025-01-10 11:51:50] Função 'criar_usuario' executada com argumentos ([PessoaFisica: ('1')>],) e {}. Retornou None
+[2025-01-10 11:51:52] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('1')>], [], 1) e {}. Retornou None
+[2025-01-10 11:51:56] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('1')>], [<ContaCorrente: ('0001', '1', '')>], 1) e {}. Retornou None
+[2025-01-10 11:51:58] Função 'depositar' executada com argumentos ([PessoaFisica: ('1')>],) e {}. Retornou None
+[2025-01-10 12:20:45] Função 'criar_usuario' executada com argumentos ([PessoaFisica: ('111.222.333-44')>],) e {}. Retornou None
+[2025-01-10 12:21:03] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('111.222.333-44')>], [<ContaCorrente: ('0001', '1', 'Diego')>], 1) e {}. Retornou None
+[2025-01-10 12:21:19] Função 'depositar' executada com argumentos ([PessoaFisica: ('111.222.333-44')>],) e {}. Retornou None
+[2025-01-10 12:54:43] Função 'criar_usuario' executada com argumentos ([PessoaFisica: ('Diego') ('111')>],) e {}. Retornou None
+[2025-01-10 12:54:47] Função 'criar_conta' executada com argumentos ([PessoaFisica: ('Diego') ('111')>], [<ContaCorrente: ('0001', '1', 'Diego')>], 1) e {}. Retornou None
+[2025-01-10 12:54:50] Função 'depositar' executada com argumentos ([PessoaFisica: ('Diego') ('111')>],) e {}. Retornou None
